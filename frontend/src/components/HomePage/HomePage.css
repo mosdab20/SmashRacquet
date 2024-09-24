@@ -1,0 +1,47 @@
+/* Navbar styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    color: white;
+    z-index: 1000;
+}
+
+.left-section {
+    flex: 1;
+}
+
+.center-section {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+}
+
+.right-section {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 1rem; /* Abstand rechts für den Button */
+}
+
+.nav-link {
+    margin: 0 1rem;
+    color: white;
+    text-decoration: none;
+    font-size: 1.0rem;
+}
+
+.logout-button {
+    padding: 0.5rem 1rem;
+    background-color: #f00;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 5rem; /* Abstand links zum vorherigen Element */
+}
