@@ -3,7 +3,7 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 
 import './App.css'
-import Login from "./components/Login.tsx";
+import Login from "./components/login/Login.tsx";
 
 function App() {
   
