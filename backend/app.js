@@ -14,6 +14,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+const { connectDB } = require('./src/db/utilService.js');
+const { initDB } = require('./src/db/DBService.js');
+connectDB();
+initDB();
+
 app.use('/', indexRouter);
 app.use('/user', userRouter);
 
