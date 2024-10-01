@@ -1,23 +1,85 @@
-/* Turniere.css */
-.add-button {
-    padding: 0.5rem 1rem;
-    background-color: #28a745; /* Grün */
+/* Allgemeines Reset für Margin und Padding */
+
+
+/* Der Container soll sich über die gesamte Seite erstrecken */
+#tournament-form-container {
+    width: 100vw; /* Volle Breite des Bildschirms */
+    height: 100vh; /* Volle Höhe des Bildschirms */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Inhalt vertikal zentrieren */
+    align-items: center; /* Inhalt horizontal zentrieren */
+    padding: 20px;
+    background-color: #fff; /* Weißer Hintergrund */
+}
+
+/* Formular Container */
+.tournament-form {
+    width: 100%; /* Volle Breite */
+    max-width: 800px; /* Maximalbreite für große Bildschirme */
+    background-color: #fff; /* Weißer Hintergrund für das Formular */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Styling für Titel */
+#tournament-title {
+    text-align: center;
+    color: #000;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Formelemente */
+.tournament-form input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #333;
+    color: #fff;
+}
+
+.tournament-form input::placeholder {
+    color: #ddd;
+}
+
+#add-tournament-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
+    font-size: 1.1rem;
     cursor: pointer;
-    margin-top: 1rem;
 }
 
-.add-button:hover {
-    background-color: #218838; /* Dunkleres Grün beim Hover */
+#add-tournament-button:hover {
+    background-color: #0056b3;
 }
 
-input {
-    display: block;
-    margin: 1rem 0;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+/* Styling für die Turnierliste */
+#tournament-list-title {
+    font-size: 1.5rem;
+    color: #000;
+    margin-top: 20px;
+    text-align: center;
+}
+
+#tournament-list {
+    list-style-type: none;
+    padding: 0;
     width: 100%;
+}
+
+#tournament-list-item {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #000;
 }

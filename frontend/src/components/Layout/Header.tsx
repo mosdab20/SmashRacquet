@@ -12,12 +12,10 @@ const Header = () => {
                     <h1>Tennis-Racquet</h1>
                 </div>
                 <div className="center-section">
-                    <a onClick={() => navigate("/HomePage")} className="nav-link">Startseite</a>
-                    <a onClick={() => navigate("/Tournaments")} className="nav-link">Turniere</a>
+                    <a style={{userSelect: "none"}} onClick={() => navigate("/HomePage")} className="nav-link">Startseite</a>
+                    <a style={{userSelect: "none"}} onClick={() => navigate("/Tournaments")} className="nav-link">Alle Turniere</a>
                 </div>
-                <div className="right-section">
-                    <button className="logout-button">Logout</button>
-                </div>
+                
             </nav>
 
             {/* Rest of your homepage content */}

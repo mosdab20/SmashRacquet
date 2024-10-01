@@ -1,20 +1,22 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Zum Navigieren zur Startseite
-import '../login/Login.css'; // Pfad zu deiner CSS-Datei anpassen
-import backgroundImage from '../../assets/image.png'; // Hintergrundbild importieren
+import { useNavigate } from 'react-router-dom';
+import '../login/Login.css';
 import logoImage from '../../assets/HTL.png'; // Logo importieren
 
-const Login: React.FC = () => {
-    const [username, setUsername] = useState(''); // Zustand für den Benutzernamen
-    const [password, setPassword] = useState(''); // Zustand für das Passwort
-    const navigate = useNavigate(); // Hook zum Navigieren
+interface LoginProps {
+    onLogin: () => void; // Prop für die Login-Funktion
+}
 
-    // Funktion zur Verarbeitung des Formulars
+const Login: React.FC<LoginProps> = ({ onLogin }) => {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const navigate = useNavigate();
+
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault(); // Verhindert das Neuladen der Seite
+        e.preventDefault();
 
-        // Überprüfen, ob Benutzername und Passwort "root" sind
         if (username === 'root' && password === 'root') {
+            onLogin(); // Erfolgreiche Anmeldung
             navigate('/HomePage'); // Navigiere zur Startseite
         } else {
             alert('Ungültiger Benutzername oder Passwort');
@@ -22,28 +24,28 @@ const Login: React.FC = () => {
     };
 
     return (
-        <div className="login-container" style={{ backgroundImage: `url(${backgroundImage})` }}>
+        <div className="login-container">
             <div className="login-card">
                 <img
-                    src={logoImage} // Verwende die importierte Logo-Variable
+                    src={logoImage}
                     alt="Logo"
                     className="login-logo"
                 />
                 <h1 className="hello">Hallo Sportsfreund:In!</h1>
-                <form className="login-form" onSubmit={handleSubmit}> {/* Formular-Submit */}
+                <form className="login-form" onSubmit={handleSubmit}>
                     <input
                         type="text"
                         placeholder="Benutzername"
                         className="login-input"
-                        value={username} // Bindung an den Zustand
-                        onChange={(e) => setUsername(e.target.value)} // Zustand aktualisieren
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
                     />
                     <input
                         type="password"
                         placeholder="Passwort"
                         className="login-input"
-                        value={password} // Bindung an den Zustand
-                        onChange={(e) => setPassword(e.target.value)} // Zustand aktualisieren
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                     />
                     <button type="submit" className="login-button">
                         LOS GEHT'S!

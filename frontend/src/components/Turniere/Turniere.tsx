@@ -1,7 +1,6 @@
-// Turniere.tsx
-
-import  { useState } from 'react';
-import {Tournament} from "../../interface/Tournament.tsx";
+import { useState } from 'react';
+import { Tournament } from "../../interface/Tournament.tsx";
+import './Turniere.css';  // assuming external CSS for styling
 
 const Turniere = () => {
     const [turniere, setTurniere] = useState<Tournament[]>([]);
@@ -11,48 +10,63 @@ const Turniere = () => {
 
     const addTournament = () => {
         const newTournament: Tournament = {
-            id: turniere.length + 1, // Eine einfache ID-Generierung
+            id: turniere.length + 1,
             name: tournamentName,
             description: tournamentDescription,
-            users: [], // Hier könnte eine Liste von Benutzern hinzugefügt werden
-            matches: [], // Hier könnte eine Liste von Matches hinzugefügt werden
+            users: [],
+            matches: [],
             prize: tournamentPrize,
         };
 
         setTurniere([...turniere, newTournament]);
-        // Felder zurücksetzen
         setTournamentName('');
         setTournamentDescription('');
         setTournamentPrize(0);
     };
 
     return (
-        <div style={{ paddingTop: '70px' }}>
-            <h1>Turniere erstellen</h1>
-            <input
-                type="text"
-                placeholder="Turniername"
-                value={tournamentName}
-                onChange={(e) => setTournamentName(e.target.value)}
-            />
-            <input
-                type="text"
-                placeholder="Beschreibung"
-                value={tournamentDescription}
-                onChange={(e) => setTournamentDescription(e.target.value)}
-            />
-            <input
-                type="number"
-                placeholder="Preisgeld"
-                value={tournamentPrize}
-                onChange={(e) => setTournamentPrize(Number(e.target.value))}
-            />
-            <button onClick={addTournament} className="add-button">Turnier hinzufügen</button>
+        <div id="tournament-form-container">
+            <h1 id="tournament-title">Turniere erstellen</h1>
+            <form className="tournament-form">
+                <div className="form-group">
+                    <label htmlFor="tournament-name-input">Turniername</label>
+                    <input
+                        type="text"
+                        id="tournament-name-input"
+                        placeholder="Turniername"
+                        value={tournamentName}
+                        onChange={(e) => setTournamentName(e.target.value)}
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="tournament-description-input">Beschreibung</label>
+                    <input
+                        type="text"
+                        id="tournament-description-input"
+                        placeholder="Beschreibung"
+                        value={tournamentDescription}
+                        onChange={(e) => setTournamentDescription(e.target.value)}
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="tournament-prize-input">Preisgeld</label>
+                    <input
+                        type="number"
+                        id="tournament-prize-input"
+                        placeholder="Preisgeld"
+                        value={tournamentPrize}
+                        onChange={(e) => setTournamentPrize(Number(e.target.value))}
+                    />
+                </div>
+                <button type="button" id="add-tournament-button" onClick={addTournament}>
+                    Turnier hinzufügen
+                </button>
+            </form>
 
-            <h2>Liste der Turniere</h2>
-            <ul>
+            <h2 id="tournament-list-title">Liste der Turniere</h2>
+            <ul id="tournament-list">
                 {turniere.map(tournament => (
-                    <li key={tournament.id}>
+                    <li id="tournament-list-item" key={tournament.id}>
                         <strong>{tournament.name}</strong>: {tournament.description} - Preis: {tournament.prize}€
                     </li>
                 ))}

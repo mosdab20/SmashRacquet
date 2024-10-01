@@ -2,13 +2,8 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
+    width: 100%; /* Füge dies hinzu, um die Breite zu sichern */
     font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: url('../../assets/image.png'); /* URL zum Hintergrundbild anpassen */
-    background-size: contain; /* Hintergrundbild wird in den Container eingepasst */
-    background-attachment: fixed;
 }
 
 /* Container für das gesamte Formular */
@@ -16,8 +11,14 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100vh; /* Stellt sicher, dass das Formular vertikal zentriert ist */
+    width: 100vw; /* Verwende 100vw für volle Breite */
+    height: 100vh; /* Verwende 100vh für volle Höhe */
+    background-image: url('../../assets/image.png'); /* URL zum Hintergrundbild */
+    background-size: cover; /* Hintergrundbild deckt den gesamten Container ab */
+    background-position: center; /* Hintergrundbild zentriert */
+    position: absolute; /* Stelle sicher, dass der Container nicht vom Layout der Seite beeinflusst wird */
+    top: 0; /* Setze den Container auf den oberen Rand */
+    left: 0; /* Setze den Container auf den linken Rand */
 }
 
 /* Kartendesign für das Login-Formular */
@@ -81,6 +82,7 @@ body, html {
     text-decoration: underline;
 }
 
-.hello{
+/* Begrüßungstext */
+.hello {
     color: black;
 }
