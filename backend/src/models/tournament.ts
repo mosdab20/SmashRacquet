@@ -1,4 +1,5 @@
 import {User} from "./User";
+import {Match} from "./Match";
 
 export interface Tournament {
     id: number,
@@ -6,6 +7,6 @@ export interface Tournament {
     name: string,
     description: string,
     users: User[],
-    //matches: Match [],
+    matches: Match [],
     prize: number
 }
