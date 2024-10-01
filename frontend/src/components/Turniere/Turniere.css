@@ -1,0 +1,23 @@
+/* Turniere.css */
+.add-button {
+    padding: 0.5rem 1rem;
+    background-color: #28a745; /* Grün */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.add-button:hover {
+    background-color: #218838; /* Dunkleres Grün beim Hover */
+}
+
+input {
+    display: block;
+    margin: 1rem 0;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
