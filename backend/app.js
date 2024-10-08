@@ -2,6 +2,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const cors = require('cors');
 
 var indexRouter = require('./routes/index');
 var userRouter = require('./routes/user');
@@ -9,6 +10,7 @@ var tournamentRouter = require('./routes/tournament');
 var matchRouter = require('./routes/match');
 
 var app = express();
+app.use(cors());
 
 app.use(logger('dev'));
 app.use(express.json());

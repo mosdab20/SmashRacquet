@@ -23,7 +23,7 @@ const initDB = () => __awaiter(void 0, void 0, void 0, function* () {
         yield Matchmodel_1.MatchModel.deleteMany();
         yield Matchmodel_1.MatchModel.insertMany(mockUsers_2.mockMatches);
         yield UserModel_1.UserModel.insertMany(mockUsers_1.mockUsers);
-        /*await TournamentModel.insertMany(mockTournaments)*/
+        yield TournamentModel_1.TournamentModel.insertMany(mockUsers_1.mockTournaments);
         console.log("### inserting into MongoDB successfully");
     }
     catch (error) {
