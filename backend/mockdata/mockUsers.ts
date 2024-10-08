@@ -1,8 +1,9 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.mockTournaments = exports.mockdata = exports.mockMatches = void 0;
+import {Match} from '../src/models/Match'
+import {Tournament} from "../src/models/Tournament";
+import {User} from "../src/models/User";
+
 // Mock Matches
-exports.mockMatches = [
+export const mockMatches: Match[] = [
     {
         id: 1,
         player: "mosdab20",
@@ -40,7 +41,9 @@ exports.mockMatches = [
         finished: true
     }
 ];
-exports.mockdata = [
+
+// Mock Users
+export const mockUsers: User[] = [
     {
         id: 1,
         username: "mosdab20",
@@ -48,7 +51,8 @@ exports.mockdata = [
         age: 19,
         name: "David Mosi",
         role: "admin",
-        matches: [exports.mockMatches[0], exports.mockMatches[2]]
+        tournaments: [],
+        matches: []
     },
     {
         id: 2,
@@ -57,7 +61,8 @@ exports.mockdata = [
         age: 24,
         name: "Benjamin Bogdan",
         role: "spieler",
-        matches: [exports.mockMatches[0]]
+        tournaments: [],
+        matches: []
     },
     {
         id: 3,
@@ -66,29 +71,29 @@ exports.mockdata = [
         age: 22,
         name: "Leon Edlinger",
         role: "halbadmin",
-        matches: [exports.mockMatches[1]]
+        tournaments: [],
+        matches: []
     }
 ];
+
 // Mock Tournaments
-exports.mockTournaments = [
+export const mockTournaments: Tournament[] = [
     {
         id: 1,
         name: "Champion's League",
         description: "Annual championship tournament",
-        users: [exports.mockdata[1], exports.mockdata[0]],
-        matches: [exports.mockMatches[0], exports.mockMatches[1]],
+        users: [],
+        matches: [],
         prize: 10000
     },
     {
         id: 2,
         name: "Beginner's Cup",
         description: "Tournament for beginners",
-        users: [exports.mockdata[0], exports.mockdata[1]],
-        matches: [exports.mockMatches[2], exports.mockMatches[3]],
+        users: [],
+        matches: [],
         prize: 5000
     }
 ];
-// Mock Users
-// Assign users to tournaments
-exports.mockTournaments[0].users = [exports.mockdata[0], exports.mockdata[1]];
-exports.mockTournaments[1].users = [exports.mockdata[6], exports.mockdata[8], exports.mockdata[9]];
+
+

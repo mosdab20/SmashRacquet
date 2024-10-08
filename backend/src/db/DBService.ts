@@ -1,16 +1,26 @@
 import {UserModel} from "./UserModel";
-import {mockdata} from "../../mockdata/mockdata";
+import {mockUsers, mockTournaments} from "../../mockdata/mockUsers";
+import {mockMatches} from "../../mockdata/mockUsers";
+import {TournamentModel} from "./TournamentModel";
+import {MatchModel} from "./Matchmodel";
+import {User} from "../models/User";
+import {Match} from "../models/Match";
+import {Tournament} from "../models/Tournament";
 
 
-export const initDB = async () => {
-    try{
-
+export const initDB = async (): Promise<void> => {
+    try {
+        // Bereinigung der Datenbank
         await UserModel.deleteMany();
-        await UserModel.insertMany(mockdata);
+        await TournamentModel.deleteMany();
+        await MatchModel.deleteMany();
 
-        console.log("### inserted data")
-    } catch (error){
+        await MatchModel.insertMany(mockMatches);
+        await UserModel.insertMany(mockUsers);
+        /*await TournamentModel.insertMany(mockTournaments)*/
+        console.log("### inserting into MongoDB successfully");
+
+    } catch (error) {
         console.log("### error on inserting: ", error);
     }
-
 }
