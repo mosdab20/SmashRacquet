@@ -31,6 +31,8 @@ const UserSchema = new mongoose_1.Schema({
     password: { type: String, required: true },
     age: { type: Number, required: true },
     name: { type: String, required: true },
-    role: { type: String, required: true }
+    role: { type: String, required: true },
+    tournaments: [{ type: mongoose_1.Schema.Types.ObjectId, ref: 'TournamentModel' }],
+    matches: [{ type: mongoose_1.Schema.Types.ObjectId, ref: 'MatchModel' }]
 });
 exports.UserModel = mongoose_1.default.model('UserModel', UserSchema);

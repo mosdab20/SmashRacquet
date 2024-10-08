@@ -5,6 +5,8 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var userRouter = require('./routes/user');
+var tournamentRouter = require('./routes/tournament');
+var matchRouter = require('./routes/match');
 
 var app = express();
 
@@ -21,5 +23,7 @@ initDB();
 
 app.use('/', indexRouter);
 app.use('/user', userRouter);
+app.use("/tournament", tournamentRouter);
+app.use('/match', matchRouter);
 
 module.exports = app;

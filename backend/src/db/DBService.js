@@ -11,12 +11,20 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.initDB = void 0;
 const UserModel_1 = require("./UserModel");
-const mockdata_1 = require("../../mockdata/mockdata");
+const mockUsers_1 = require("../../mockdata/mockUsers");
+const mockUsers_2 = require("../../mockdata/mockUsers");
+const TournamentModel_1 = require("./TournamentModel");
+const Matchmodel_1 = require("./Matchmodel");
 const initDB = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
+        // Bereinigung der Datenbank
         yield UserModel_1.UserModel.deleteMany();
-        yield UserModel_1.UserModel.insertMany(mockdata_1.mockdata);
-        console.log("### inserted data");
+        yield TournamentModel_1.TournamentModel.deleteMany();
+        yield Matchmodel_1.MatchModel.deleteMany();
+        yield Matchmodel_1.MatchModel.insertMany(mockUsers_2.mockMatches);
+        yield UserModel_1.UserModel.insertMany(mockUsers_1.mockUsers);
+        /*await TournamentModel.insertMany(mockTournaments)*/
+        console.log("### inserting into MongoDB successfully");
     }
     catch (error) {
         console.log("### error on inserting: ", error);
