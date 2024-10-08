@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { Tournament } from "../../interface/Tournament.tsx";
 import './Turniere.css';  // assuming external CSS for styling
+import { useNavigate } from 'react-router-dom'; // Importiere useNavigate für die Navigation
 
 const Turniere = () => {
     const [turniere, setTurniere] = useState<Tournament[]>([]);
     const [tournamentName, setTournamentName] = useState('');
     const [tournamentDescription, setTournamentDescription] = useState('');
     const [tournamentPrize, setTournamentPrize] = useState<number>(0);
+    const navigate = useNavigate(); // Hook für die Navigation
 
     const addTournament = () => {
         const newTournament: Tournament = {
@@ -24,9 +26,15 @@ const Turniere = () => {
         setTournamentPrize(0);
     };
 
+    const handleLogout = () => {
+        // Hier kannst du den Logout-Logik implementieren, z.B. Token löschen
+        navigate('/Login'); // Navigiere zur Login-Seite nach dem Logout
+    };
+
     return (
         <div id="tournament-form-container">
             <h1 id="tournament-title">Turniere erstellen</h1>
+            <button onClick={handleLogout} id="logout-button">Logout</button> {/* Logout-Button hinzufügen */}
             <form className="tournament-form">
                 <div className="form-group">
                     <label htmlFor="tournament-name-input">Turniername</label>
