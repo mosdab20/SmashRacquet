@@ -20,5 +20,6 @@ describe('template spec', function() {
     // cy.get('button[id="logout"]').should('exist'); // Überprüfe, ob der Logout-Button vorhanden ist
 
 
+    cy.get('button[id="logout"]').click();
   });
 });

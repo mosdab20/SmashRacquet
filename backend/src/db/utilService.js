@@ -18,7 +18,7 @@ const DB_URL = "mongodb+srv://admin:admin@cluster0.qezas.mongodb.net/?retryWrite
 const connectDB = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         yield mongoose_1.default.connect(DB_URL);
-        console.log("### connected to MongoDB successfully");
+        // console.log("### connected to MongoDB successfully");
     }
     catch (error) {
         console.log("### error couldn't connect to MongoDB:", error);
