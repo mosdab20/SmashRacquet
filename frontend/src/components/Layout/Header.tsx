@@ -23,7 +23,7 @@ const Header = () => {
                     <a style={{ userSelect: "none" }} onClick={() => navigate("/Tournaments")} className="nav-link">Alle Turniere</a>
                 </div>
                 <div className="right-section">
-                    <button onClick={handleLogout} className="logout-button">Logout</button>
+                    <button id={"logout"} onClick={handleLogout} className="logout-button">Logout</button>
                 </div>
             </nav>
 
