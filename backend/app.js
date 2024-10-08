@@ -23,9 +23,9 @@ const { initDB } = require('./src/db/DBService.js');
 connectDB();
 initDB();
 
-app.use('/', indexRouter);
-app.use('/user', userRouter);
-app.use("/tournament", tournamentRouter);
-app.use('/match', matchRouter);
+
+app.use('/users', userRouter);
+app.use("/tournaments", tournamentRouter);
+app.use('/matches', matchRouter);
 
 module.exports = app;
