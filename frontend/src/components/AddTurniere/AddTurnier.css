@@ -10,7 +10,6 @@
     align-items: center; /* Inhalt horizontal zentrieren */
     padding: 20px;
     background-color: #fff; /* Weißer Hintergrund */
-
     background-size: cover;
     background-position: center;
 }
@@ -32,10 +31,10 @@
 #tournament-title {
     text-align: center;
     color: #333;
-    font-size: 2.5rem; /* Größerer Titel für besseres Hervorheben */
+    font-size: 2.5rem;
     margin-bottom: 20px;
-    font-family: 'Arial', sans-serif; /* Optional: Schriftart */
-    text-transform: uppercase; /* Titel in Großbuchstaben */
+    font-family: 'Arial', sans-serif;
+    text-transform: uppercase;
 }
 
 /* Formelemente */
@@ -67,35 +66,4 @@
 
 #add-tournament-button:hover {
     background-color: #45a049; /* Dunkleres Grün beim Hover */
-}
-
-/* Styling für die Turnierliste */
-#tournament-list-title {
-    font-size: 1.8rem; /* Größere Schriftgröße */
-    color: #333;
-    margin-top: 25px;
-    text-align: center;
-}
-
-#tournament-list {
-    list-style-type: none;
-    padding: 0;
-    width: 100%;
-    margin-top: 15px;
-}
-
-#tournament-list-item {
-    margin-bottom: 15px;
-    font-size: 1.1rem;
-    color: #000;
-    padding: 10px;
-    background-color: #f1f1f1;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-/* Optional: Ein kleines Tennissymbol neben den Listenelementen */
-#tournament-list-item::before {
-    content: "🎾"; /* Tennis-Emoji vor dem Text */
-    margin-right: 10px;
 }

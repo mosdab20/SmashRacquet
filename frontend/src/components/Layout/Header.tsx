@@ -19,8 +19,11 @@ const Header = () => {
                     <h1>Tennis-Racquet</h1>
                 </div>
                 <div className="center-section">
-                    <a style={{ userSelect: "none" }} onClick={() => navigate("/HomePage")} className="nav-link">Startseite</a>
-                    <a style={{ userSelect: "none" }} onClick={() => navigate("/Tournaments")} className="nav-link">Alle Turniere</a>
+                    <a style={{userSelect: "none"}} onClick={() => navigate("/HomePage")}
+                       className="nav-link">Startseite</a>
+                    <a style={{userSelect: "none"}} onClick={() => navigate("/Tournaments")} className="nav-link">Alle
+                        Turniere</a>
+                    <a style={{userSelect: "none"}} onClick={() => navigate("/AddTournament")} className="nav-link">Turnier hinzufügen</a>
                 </div>
                 <div className="right-section">
                     <button id={"logout"} onClick={handleLogout} className="logout-button">Logout</button>
