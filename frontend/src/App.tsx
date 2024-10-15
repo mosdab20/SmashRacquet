@@ -6,6 +6,7 @@ import Login from "./components/login/Login.tsx";
 import HomePage from "./components/HomePage/HomePage.tsx";
 import Turniere from "./components/Turniere/Turniere.tsx";
 import TennisContext from "./context/context.tsx";
+import AddTurnier from "./components/AddTurniere/AddTurnier.tsx";
 
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false); // Zustand für Authentifizierung
@@ -25,6 +26,7 @@ function App() {
                     <Route path="/" element={isAuthenticated ? <Layout /> : <Navigate to="/" />}>
                         <Route path="HomePage" element={<HomePage />} />
                         <Route path="Tournaments" element={<Turniere />} />
+                        <Route path="AddTournament" element={<AddTurnier />} />
                     </Route>
                 </Routes>
             </TennisContext.Provider>
