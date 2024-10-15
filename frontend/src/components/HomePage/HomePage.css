@@ -44,28 +44,26 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-right: 5rem; /* Abstand links zum vorherigen Element */
+    margin-right: 5rem;
 }
 
 /* Content layout */
 .content {
-    margin-top: 4rem; /* Space for the fixed navbar */
+    margin-top: 4rem;
     padding: 2rem;
-    height: 100%; /* Ensure content takes full height */
+    height: 100%;
 }
 
-/* Live score section */
-/* Live score section */
 .live-score {
     margin-top: 50px;
-    background-image: url('../../assets/tennis-background.png'); /* Replace with appropriate image */
-    background-size: 100% auto; /* Full width, auto height */
+    background-image: url('../../assets/tennis-background.png');
+    background-size: 100% auto;
     background-position: center;
     color: white;
     text-align: center;
     padding: 60px 0;
-    height: 50vh; /* Adjust the height as needed */
-    border-radius: 80px; /* Adjust the radius as needed */
+    height: 50vh;
+    border-radius: 80px;
     position: relative; /* Ensure the text container is positioned correctly */
 }
 
