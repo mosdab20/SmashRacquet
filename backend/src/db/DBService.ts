@@ -18,7 +18,6 @@ export const initDB = async (): Promise<void> => {
         await MatchModel.insertMany(mockMatches);
         await UserModel.insertMany(mockUsers);
         await TournamentModel.insertMany(mockTournaments)
-        console.log("### inserting into MongoDB successfully");
 
     } catch (error) {
         console.log("### error on inserting: ", error);

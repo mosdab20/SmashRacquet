@@ -71,6 +71,76 @@ exports.mockUsers = [
         role: "halbadmin",
         tournaments: [],
         matches: []
+    },
+    {
+        id: 4,
+        username: "makac30",
+        password: "30",
+        age: 30,
+        name: "Karl Mader",
+        role: "spieler",
+        tournaments: [],
+        matches: []
+    },
+    {
+        id: 5,
+        username: "user9",
+        password: "9",
+        age: 19,
+        name: "User 9",
+        role: "spieler",
+        tournaments: [],
+        matches: []
+    },
+    {
+        id: 6,
+        username: "user7",
+        password: "7",
+        age: 19,
+        name: "User 7",
+        role: "spieler",
+        tournaments: [],
+        matches: []
+    },
+    {
+        id: 7,
+        username: "user10",
+        password: "10",
+        age: 19,
+        name: "User 10",
+        role: "spieler",
+        tournaments: [],
+        matches: []
+    },
+    {
+        id: 8,
+        username: "user11",
+        password: "11",
+        age: 19,
+        name: "User 11",
+        role: "spieler",
+        tournaments: [],
+        matches: []
+    },
+    {
+        id: 9,
+        username: "user12",
+        password: "12",
+        age: 19,
+        name: "User 12",
+        role: "spieler",
+        tournaments: [],
+        matches: []
+    },
+    {
+        id: 10,
+        username: "user13",
+        password: "13",
+        age: 19,
+        name: "User 13",
+        role: "spieler",
+        tournaments: [],
+        matches: []
     }
 ];
 // Mock Tournaments
