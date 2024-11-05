@@ -1,82 +1,89 @@
-/* Allgemeines Reset für Margin und Padding */
 
-/* Der Container soll sich über die gesamte Seite erstrecken */
+
+/* Container for the entire page */
 #tournament-form-container {
-    width: 100vw; /* Volle Breite des Bildschirms */
-    height: 100vh; /* Volle Höhe des Bildschirms */
+    width: 100vw;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Inhalt vertikal zentrieren */
-    align-items: center; /* Inhalt horizontal zentrieren */
+    justify-content: center;
+    align-items: center;
     padding: 20px;
-    background-color: #fff; /* Weißer Hintergrund */
-
+    background-color: #f7f8fc; /* Soft background color */
     background-size: cover;
     background-position: center;
+    font-family: Arial, sans-serif;
 }
 
-/* Formular Container */
+/* Card-style container for form and list */
 .tournament-form {
-    width: 100%; /* Volle Breite */
-    max-width: 800px; /* Maximalbreite für große Bildschirme */
-    background-color: rgba(255, 255, 255, 0.9); /* Weißer Hintergrund mit Transparenz */
+    width: 100%;
+    max-width: 800px;
+    background-color: rgba(255, 255, 255, 0.95);
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     gap: 15px;
-}
-
-/* Styling für Titel */
-#tournament-title {
-    text-align: center;
-    color: #333;
-    font-size: 2.5rem; /* Größerer Titel für besseres Hervorheben */
     margin-bottom: 20px;
-    font-family: 'Arial', sans-serif; /* Optional: Schriftart */
-    text-transform: uppercase; /* Titel in Großbuchstaben */
 }
 
-/* Formelemente */
-.tournament-form input {
-    width: 100%;
-    padding: 10px;
-    font-size: 1.1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #f5f5f5; /* Hellgrauer Hintergrund */
+/* Title styling */
+#tournament-list-title {
+    font-size: 2rem;
     color: #333;
-}
-
-.tournament-form input::placeholder {
-    color: #888; /* Platzhalter in einer neutralen Farbe */
-}
-
-#add-tournament-button {
-    width: 100%;
-    padding: 12px;
-    background-color: #4CAF50; /* Tennis-ähnliches Grün */
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 1.2rem;
-    cursor: pointer;
+    margin-bottom: 100px;
+    font-weight: bold;
+    text-align: center;
     text-transform: uppercase;
 }
 
-#add-tournament-button:hover {
-    background-color: #45a049; /* Dunkleres Grün beim Hover */
+/* Control section for filters and sorting */
+.filter-sort-controls {
+    display: flex;
+    gap: 15px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
 }
 
-/* Styling für die Turnierliste */
-#tournament-list-title {
-    font-size: 1.8rem; /* Größere Schriftgröße */
+/* Input and dropdown styling */
+.filter-sort-controls input[type="number"],
+.filter-sort-controls select {
+    width: 140px;
+    padding: 8px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f0f0f0;
     color: #333;
-    margin-top: 25px;
-    text-align: center;
+    transition: border 0.2s ease;
 }
 
+.filter-sort-controls input[type="number"]:focus,
+.filter-sort-controls select:focus {
+    border-color: #4CAF50;
+}
+
+/* Sort Order Button */
+.filter-sort-controls button {
+    padding: 8px 16px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.filter-sort-controls button:hover {
+    background-color: #45a049;
+}
+
+/* Tournament List */
 #tournament-list {
     list-style-type: none;
     padding: 0;
@@ -85,17 +92,26 @@
 }
 
 #tournament-list-item {
+    display: flex;
+    align-items: center;
     margin-bottom: 15px;
     font-size: 1.1rem;
     color: #000;
-    padding: 10px;
-    background-color: #f1f1f1;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+    padding: 10px 15px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
 }
 
-/* Optional: Ein kleines Tennissymbol neben den Listenelementen */
+#tournament-list-item:hover {
+    background-color: #f0f8ff;
+}
+
+/* Emoji decoration for list items */
 #tournament-list-item::before {
-    content: "🎾"; /* Tennis-Emoji vor dem Text */
+    content: "🎾";
     margin-right: 10px;
+    font-size: 1.2rem;
 }
