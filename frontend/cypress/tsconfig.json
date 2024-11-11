@@ -9,7 +9,4 @@
     "types": ["cypress"], // Füge die Cypress-Typen hinzu
     "lib": ["es6", "dom"]
   },
-  "include": [
-    "cypress/**/*.ts"
-  ]
 }
