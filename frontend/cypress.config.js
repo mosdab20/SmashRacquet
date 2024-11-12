@@ -1,7 +1,10 @@
-const { defineConfig } = require("cypress");
-
-module.exports = defineConfig({
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const cypress_1 = require("cypress");
+exports.default = (0, cypress_1.defineConfig)({
   e2e: {
-    baseUrl: 'http://localhost:3005/tournaments',
+    setupNodeEvents: function (on, config) {
+      // implement node event listeners here
+    },
   },
 });
