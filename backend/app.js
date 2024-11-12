@@ -23,7 +23,11 @@ const { initDB } = require('./src/db/DBService.js');
 connectDB();
 initDB();
 
-
+app.use(cors({
+    origin: '*', // Erlaubt Anfragen von allen Ursprüngen
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Erlaubt alle Methoden
+    allowedHeaders: ['Content-Type', 'Authorization'] // Erlaubt diese Header
+}));
 
 
 app.use('/users', userRouter);

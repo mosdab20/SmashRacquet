@@ -80,7 +80,7 @@ const Turniere = () => {
             <div className="filter-sort-controls">
                 <div>
                     <label>Anfangsbuchstabe:</label>
-                    <input
+                    <input id="letterFirst"
                         type="text"
                         maxLength={1}
                         value={initialLetter}
