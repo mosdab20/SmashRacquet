@@ -1,12 +1,4 @@
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%; /* Füge dies hinzu, um die Breite zu sichern */
-    font-family: Arial, sans-serif;
-}
 
-/* Container für das gesamte Formular */
 .login-container {
     display: flex;
     justify-content: center;

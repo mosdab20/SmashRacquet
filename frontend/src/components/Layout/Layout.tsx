@@ -4,17 +4,19 @@
 import {Outlet} from "react-router-dom";
 import Header from "./Header.tsx";
 
+
+
 const Layout = () => {
     return (
-        <div>
+        <>
             <header>
                 <Header></Header>
             </header>
-            <main className="mt-20 p-4 mb-20 ">
+            <main >
                 <Outlet/>
             </main>
             
-        </div>
+        </>
     );
 };
 

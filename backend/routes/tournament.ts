@@ -1,17 +1,16 @@
 import express, { Request, Response} from  "express";
-import {mockUsers} from "../mockdata/mockUsers";
-import {UserModel} from "../src/db/UserModel";
 import {TournamentModel} from "../src/db/TournamentModel";
 
 
 let router = express.Router();
 
+// http://localhost:3005/tournaments/
 router.get('/', (req: Request, res:Response)=> {
-    console.log("im get");
+
     TournamentModel.find().then(tournaments => res.send(tournaments));
 });
 
-
+//  htttp://localhost:3005/tournaments/tByLetter?letter=A
 router.get('/tByLetter', (req: Request, res: Response) => {
     const letter = req.query.letter?.toString();
     console.log(letter);
@@ -23,11 +22,9 @@ router.get('/tByLetter', (req: Request, res: Response) => {
     TournamentModel.find({ name: { $regex: new RegExp(`^${letter}`, "i") } })
         .then(tournaments => {
             res.send(tournaments);})
-
-
 });
 
-
+// http://localhost:3005/tournaments/tByPrize?prize=1500000
 router.get('/tByPrize/', (req: Request, res: Response) => {
     const prize = Number(req.query.prize);
 
@@ -45,6 +42,8 @@ router.get('/tByPrize/', (req: Request, res: Response) => {
         .catch(err => res.status(500).send("Fehler beim Abrufen der Turniere: " + err.message));
 });
 
+
+// http://localhost:3005/tournaments/prize-range?minPrize=0&maxPrize=1500000
 router.get('/prize-range', (req: Request, res: Response) => {
     const minPrize = Number(req.query.minPrize);
     const maxPrize = Number(req.query.maxPrize);
@@ -54,14 +53,11 @@ router.get('/prize-range', (req: Request, res: Response) => {
         return res.status(400).send("Bitte gib gültige Zahlen als 'minPrize' und 'maxPrize' an.");
     }
 
-
     TournamentModel.find({ prize: { $gte: minPrize, $lte: maxPrize } })
         .then(tournaments => {
             res.send(tournaments);
         })
         .catch(err => res.status(500).send("Fehler beim Abrufen der Turniere: " + err.message));
 });
-
-
 
 module.exports = router;

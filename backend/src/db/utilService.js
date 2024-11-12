@@ -14,15 +14,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.connectDB = void 0;
 const mongoose_1 = __importDefault(require("mongoose"));
-const DBService_1 = require("./DBService");
 const DB_URL = "mongodb+srv://admin:admin@cluster0.qezas.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 const connectDB = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         console.log("connecting...");
         yield mongoose_1.default.connect(DB_URL);
-        console.log("inserting data...");
-        yield (0, DBService_1.initDB)(); // Datenbank initialisieren, nachdem die Verbindung hergestellt wurde
-        // console.log("### connected to MongoDB successfully");
+        console.log("connected");
     }
     catch (error) {
         console.log("### error couldn't connect to MongoDB:", error);

@@ -6,10 +6,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const TournamentModel_1 = require("../src/db/TournamentModel");
 let router = express_1.default.Router();
+// http://localhost:3005/tournaments/
 router.get('/', (req, res) => {
-    console.log("im get");
     TournamentModel_1.TournamentModel.find().then(tournaments => res.send(tournaments));
 });
+//  htttp://localhost:3005/tournaments/tByLetter?letter=A
 router.get('/tByLetter', (req, res) => {
     var _a;
     const letter = (_a = req.query.letter) === null || _a === void 0 ? void 0 : _a.toString();
@@ -22,6 +23,7 @@ router.get('/tByLetter', (req, res) => {
         res.send(tournaments);
     });
 });
+// http://localhost:3005/tournaments/tByPrize?prize=1500000
 router.get('/tByPrize/', (req, res) => {
     const prize = Number(req.query.prize);
     if (isNaN(prize)) {
@@ -36,6 +38,7 @@ router.get('/tByPrize/', (req, res) => {
     })
         .catch(err => res.status(500).send("Fehler beim Abrufen der Turniere: " + err.message));
 });
+// http://localhost:3005/tournaments/prize-range?minPrize=0&maxPrize=1500000
 router.get('/prize-range', (req, res) => {
     const minPrize = Number(req.query.minPrize);
     const maxPrize = Number(req.query.maxPrize);

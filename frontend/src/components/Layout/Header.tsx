@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useTennisContext } from "../../context/context.tsx";
+import "./Header.css"
 
 const Header = () => {
     const navigate = useNavigate();
@@ -17,6 +18,7 @@ const Header = () => {
             <nav className="navbar">
                 <div className="left-section">
                     <h1>Tennis-Racquet</h1>
+                    <br/>
                 </div>
                 <div className="center-section">
                     <a style={{userSelect: "none"}} onClick={() => navigate("/HomePage")}

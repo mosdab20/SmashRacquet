@@ -26,7 +26,7 @@ const AddTurnier = () => {
         setTournamentPrize(0);
     };
     return (
-        <div>
+        <div id="ma">
             <h1 id="tournament-title">Turniere erstellen</h1>
 
             <form className="tournament-form">
