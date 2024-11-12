@@ -5,106 +5,141 @@ import './Turniere.css';
 
 const Turniere = () => {
     const [tournaments, setTournaments] = useState<Tournament[]>([]);
-    const [filteredTournaments, setFilteredTournaments] = useState<Tournament[]>([]);
-    const [minPrize, setMinPrize] = useState<number | undefined>(undefined);
-    const [maxPrize, setMaxPrize] = useState<number | undefined>(undefined);
-    const [sortCriteria, setSortCriteria] = useState<string>("name");
-    const [sortOrder, setSortOrder] = useState<boolean>(true); // true for ascending, false for descending
+
+    const [initialLetter, setInitialLetter] = useState<string>('');
+    const [minPrize, setMinPrize] = useState<number | string>('');
+    const [maxPrize, setMaxPrize] = useState<number | string>('');
+    const [sortBy, setSortBy] = useState<string>('name');
+    const [sortOrder, setSortOrder] = useState<string>('asc');
+
+    const fetchTournaments = async () => {
+        const data = await TournamentService.getTournaments();
+        setTournaments(data);
+    };
 
     useEffect(() => {
-        TournamentService.getTournaments().then(data => {
-            setTournaments(data);
-            setFilteredTournaments(data);
-        });
+        fetchTournaments();
     }, []);
 
-    // Filter tournaments by prize range whenever minPrize or maxPrize changes
-    useEffect(() => {
-        let result = tournaments;
+    // Filter anwenden
+    const applyFilters = () => {
+        let filteredTournaments = tournaments;
 
-        if (minPrize !== undefined && maxPrize !== undefined) {
-            result = tournaments.filter(
-                tournament => tournament.prize >= minPrize && tournament.prize <= maxPrize
+        // Filter nach dem Anfangsbuchstaben anwenden
+        if (initialLetter) {
+            filteredTournaments = filteredTournaments.filter((tournament) =>
+                tournament.name.startsWith(initialLetter.toUpperCase()) // Sicherstellen, dass die Groß-/Kleinschreibung ignoriert wird
             );
         }
 
-        setFilteredTournaments(result);
-    }, [minPrize, maxPrize, tournaments]);
+        // Filter nach Preis anwenden
+        if (minPrize !== '') {
+            filteredTournaments = filteredTournaments.filter(
+                (tournament) => tournament.prize >= +minPrize
+            );
+        }
 
-    // Sort tournaments based on selected criteria and order
-    const handleSortChange = (criteria: string) => {
-        setSortCriteria(criteria);
-        sortTournaments(criteria, sortOrder);
-    };
+        if (maxPrize !== '') {
+            filteredTournaments = filteredTournaments.filter(
+                (tournament) => tournament.prize <= +maxPrize
+            );
+        }
 
-    const handleSortOrderToggle = () => {
-        const newOrder = !sortOrder;
-        setSortOrder(newOrder);
-        sortTournaments(sortCriteria, newOrder);
-    };
-
-    const sortTournaments = (criteria: string, ascending: boolean) => {
-        const sortedTournaments = [...filteredTournaments].sort((a, b) => {
-            let comparison = 0;
-            if (criteria === "name") {
-                comparison = a.name.localeCompare(b.name);
-            } else if (criteria === "prize") {
-                comparison = a.prize - b.prize;
+        // Sortierung anwenden
+        filteredTournaments = filteredTournaments.sort((a, b) => {
+            if (sortBy === "name") {
+                return sortOrder === "asc"
+                    ? b.name.localeCompare(a.name)  // Aufsteigend alphabetisch
+                    : a.name.localeCompare(b.name); // Absteigend alphabetisch
+            } else if (sortBy === "prize") {
+                return sortOrder === "asc" ? b.prize - a.prize : a.prize - b.prize;
             }
-            return ascending ? comparison : -comparison;
+            return 0;
         });
 
-        setFilteredTournaments(sortedTournaments);
+        setTournaments(filteredTournaments);
+    };
+
+
+    useEffect(() => {
+        applyFilters();
+    }, [initialLetter, minPrize, maxPrize, sortBy, sortOrder]);
+
+    // Filter zurücksetzen
+    const resetFilters = () => {
+        setInitialLetter('');
+        setMinPrize('');
+        setMaxPrize('');
+        setSortBy('name');
+        setSortOrder('asc');
+        fetchTournaments(); // Originale Liste der Turniere neu laden
     };
 
     return (
-        <div id="tournament-form-container">
-            <h2 id="tournament-list-title">Liste der Turniere</h2>
-
+        <div id="tournament-container">
             <div className="filter-sort-controls">
+                <div>
+                    <label>Anfangsbuchstabe:</label>
+                    <input
+                        type="text"
+                        maxLength={1}
+                        value={initialLetter}
+                        onChange={(e) => setInitialLetter(e.target.value)}
+                    />
+                </div>
                 <div>
                     <label>Min Preis:</label>
                     <input
                         type="number"
-                        value={minPrize || ""}
-                        onChange={(e) => setMinPrize(Number(e.target.value))}
+                        value={minPrize}
+                        onChange={(e) => setMinPrize(e.target.value)}
                     />
                 </div>
                 <div>
                     <label>Max Preis:</label>
                     <input
                         type="number"
-                        value={maxPrize || ""}
-                        onChange={(e) => setMaxPrize(Number(e.target.value))}
+                        value={maxPrize}
+                        onChange={(e) => setMaxPrize(e.target.value)}
                     />
                 </div>
-
                 <div>
                     <label>Sortieren nach:</label>
                     <select
-                        value={sortCriteria}
-                        onChange={(e) => handleSortChange(e.target.value)}
+                        value={sortBy}
+                        onChange={(e) => setSortBy(e.target.value)}
                     >
+
                         <option value="name">Name</option>
                         <option value="prize">Preis</option>
                     </select>
                 </div>
-
                 <div>
                     <label>Reihenfolge:</label>
-                    <button onClick={handleSortOrderToggle}>
-                        {sortOrder ? "Aufsteigend" : "Absteigend"}
-                    </button>
+                    <select
+                        value={sortOrder}
+                        onChange={(e) => setSortOrder(e.target.value)}
+                    >
+
+                        <option value="asc">Aufsteigend</option>
+                        <option value="desc">Absteigend</option>
+                    </select>
                 </div>
+
+                {/* Button zum Zurücksetzen der Filter */}
+                <button onClick={resetFilters}>Filter zurücksetzen</button>
             </div>
 
-            <ul id="tournament-list">
-                {filteredTournaments.map((tournament) => (
-                    <li id="tournament-list-item" key={tournament.id}>
-                        <strong>{tournament.name}</strong>: {tournament.description} - Preis: {tournament.prize}€
-                    </li>
-                ))}
-            </ul>
+            <div className="list-tournaments">
+                <h2 id="tournament-list-title">Liste der Turniere</h2>
+                <ul id="tournament-list">
+                    {tournaments.map((tournament) => (
+                        <li id="tournament-list-item" >
+                            <strong>{tournament.name}</strong>: {tournament.description} Preis: {tournament.prize}€
+                        </li>
+                    ))}
+                </ul>
+            </div>
         </div>
     );
 };

@@ -7,10 +7,7 @@ export const connectDB = async () => {
     try {
         console.log("connecting...")
         await mongoose.connect(DB_URL);
-        console.log("inserting data...")
-        await initDB(); // Datenbank initialisieren, nachdem die Verbindung hergestellt wurde
-
-        // console.log("### connected to MongoDB successfully");
+        console.log("connected")
     } catch (error) {
         console.log("### error couldn't connect to MongoDB:", error);
     }

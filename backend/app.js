@@ -23,7 +23,7 @@ const { initDB } = require('./src/db/DBService.js');
 connectDB();
 initDB();
 
-console.log("connected")
+
 
 
 app.use('/users', userRouter);
