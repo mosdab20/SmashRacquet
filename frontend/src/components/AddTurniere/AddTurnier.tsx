@@ -12,7 +12,6 @@ const AddTurnier = () => {
 
     const addTournament = () => {
         const newTournament: Tournament = {
-            id: turniere.length + 1,
             name: tournamentName,
             description: tournamentDescription,
             users: [],
