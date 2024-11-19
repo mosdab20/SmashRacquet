@@ -60,4 +60,14 @@ router.get('/prize-range', (req: Request, res: Response) => {
         .catch(err => res.status(500).send("Fehler beim Abrufen der Turniere: " + err.message));
 });
 
+router.post('/', (req: Request, res:Response) => {
+    const tournament = req.body;
+    
+
+    
+    TournamentModel.create(tournament)
+        .then(r => res.status(200).send(r))
+        .catch(e => res.status(400));
+})
+
 module.exports = router;

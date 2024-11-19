@@ -12,12 +12,16 @@ describe('Tournament API Tests', () => {
 
     // Test für die Route GET '/tByLetter'
     it('GET /tByLetter should return tournaments starting with specified letter', () => {
+        let filteredTournaments = [];
+        let tournaments = [];
+        
         cy.request({
             url: '/tByLetter',
             qs: { letter: 'A' } // Beispiel: Turniere, die mit "A" beginnen
         }).then((response) => {
             expect(response.status).to.eq(200);
             expect(response.body).to.be.an('array');
+            filteredTournaments = response.body;
             response.body.forEach(tournament => {
                 expect(tournament.name[0]).to.match(/A/i); // Überprüfen, ob der Name mit "A" beginnt
             });

@@ -1,7 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 
 const TournamentSchema: Schema = new Schema({
-    id: { type: Number, required: true },
     name: { type: String, required: true },
     description: { type: String, required: true },
     users: [{ type: Schema.Types.ObjectId, ref: 'UserModel' }], // Referenz auf Benutzer
