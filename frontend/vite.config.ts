@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 45921, // Port für das Frontend
-    host: 'delphinus.uberspace.de',
+    host: '0.0.0.0',
     proxy: {
       '/api': {
         target: 'http://delphinus.uberspace.de:45921', // Zieladresse des Backends
