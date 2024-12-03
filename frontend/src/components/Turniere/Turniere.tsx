@@ -81,10 +81,41 @@ const Turniere = () => {
         }
     };
 
+    const applySorting = () => {
+        let sortedTournaments = [...filteredTournaments];
+
+        if (sortBy === 'name') {
+            sortedTournaments.sort((a, b) => {
+                const nameA = a.name.toLowerCase();
+                const nameB = b.name.toLowerCase();
+
+                if (sortOrder === 'asc') {
+                    return nameA.localeCompare(nameB);
+                } else {
+                    return nameB.localeCompare(nameA);
+                }
+            });
+        } else if (sortBy === 'prize') {
+            sortedTournaments.sort((a, b) => {
+                if (sortOrder === 'asc') {
+                    return a.prize - b.prize;
+                } else {
+                    return b.prize - a.prize;
+                }
+            });
+        }
+
+        setFilteredTournaments(sortedTournaments);
+    };
+
 
     useEffect(() => {
         applyFilters();
-    }, [name, minPrize, maxPrize, sortBy, sortOrder]);
+    }, [name, minPrize, maxPrize]);
+
+    useEffect(() => {
+        applySorting();
+    }, [sortOrder, sortBy]);
 
 
     const resetFilters = () => {

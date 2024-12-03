@@ -39,5 +39,23 @@ export class TournamentService {
         return response.data;
     }
 
+    // Get tournaments sorted by price (asc or desc)
+    public static async getTournamentsSortedByPrice(order: "asc" | "desc"): Promise<Tournament[]> {
+        const response = await axios.get<Tournament[]>(`${this.BASE_URL}/tournaments/sortedByPrice`, {
+            params: { order }
+        });
+        console.log(response);
+        return response.data;
+    }
+
+    // Get tournaments sorted by name (asc or desc)
+    public static async getTournamentsSortedByName(order: "asc" | "desc"): Promise<Tournament[]> {
+        const response = await axios.get<Tournament[]>(`${this.BASE_URL}/tournaments/sortedByName`, {
+            params: { order }
+        });
+        console.log(response);
+        return response.data;
+    }
+
 
 }

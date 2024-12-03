@@ -60,8 +60,24 @@ router.get('/prize-range', (req: Request, res: Response) => {
         .catch(err => res.status(500).send("Fehler beim Abrufen der Turniere: " + err.message));
 });
 
+// http://localhost:3005/tournaments/sortedByPrice?order=asc
+router.get('/sortedByPrice', (req: Request, res: Response) => {
+    const order = req.query.order?.toString() || "asc";
+    const sortOrder = order === "asc" ? 1 : -1;
+
+    TournamentModel.find().sort({ prize: sortOrder })
+        .then(tournaments => res.send(tournaments))
+        .catch(err => res.status(500).send("Fehler beim Abrufen der Turniere: " + err.message));
+});
+
+// http://localhost:3005/tournaments/sortedByName?order=asc
 router.get('/sortedByName', (req: Request, res: Response) => {
-    TournamentModel.find()
-})
+    const order = req.query.order?.toString() || "asc";
+    const sortOrder = order === "asc" ? 1 : -1;
+
+    TournamentModel.find().sort({ name: sortOrder })
+        .then(tournaments => res.send(tournaments))
+        .catch(err => res.status(500).send("Fehler beim Abrufen der Turniere: " + err.message));
+});
 
 module.exports = router;
