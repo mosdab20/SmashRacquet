@@ -2,7 +2,7 @@ import axios from "axios";
 import {Tournament} from "../interface/Tournament.tsx";
 
 export class TournamentService {
-    private static readonly BASE_URL:string = "http://localhost:3005";
+    private static readonly BASE_URL:string = "http://delphinus.uberspace.de:45920";
 
 
     public static async getTournaments(): Promise<Tournament[]> {
