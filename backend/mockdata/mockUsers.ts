@@ -149,36 +149,12 @@ export const mockUsers: User[] = [
 // Mock Tournaments
 export const mockTournaments: Tournament[] = [
     {
-        id: 1,
-        name: "Champion's League",
-        description: "Annual championship tournament",
+        id: 9,
+        name: "ATP Finals",
+        description: "Year-end tournament for the top-ranked men's singles and doubles players.",
         users: [],
         matches: [],
-        prize: 10000
-    },
-    {
-        id: 2,
-        name: "Beginner's Cup",
-        description: "Tournament for beginners",
-        users: [],
-        matches: [],
-        prize: 5000
-    },
-    {
-        id: 3,
-        name: "Wimbledon",
-        description: "The oldest and most prestigious tennis tournament held in London.",
-        users: [],
-        matches: [],
-        prize: 2000000
-    },
-    {
-        id: 4,
-        name: "US Open",
-        description: "Annual hard-court Grand Slam tournament held in New York.",
-        users: [],
-        matches: [],
-        prize: 1500000
+        prize: 1300000
     },
     {
         id: 5,
@@ -189,36 +165,12 @@ export const mockTournaments: Tournament[] = [
         prize: 1400000
     },
     {
-        id: 6,
-        name: "French Open",
-        description: "The only Grand Slam played on clay courts, held in Paris.",
+        id: 2,
+        name: "Beginner's Cup",
+        description: "Tournament for beginners",
         users: [],
         matches: [],
-        prize: 1600000
-    },
-    {
-        id: 7,
-        name: "Davis Cup",
-        description: "International team event in men's tennis.",
-        users: [],
-        matches: [],
-        prize: 800000
-    },
-    {
-        id: 8,
-        name: "Laver Cup",
-        description: "Team competition between Team Europe and Team World.",
-        users: [],
-        matches: [],
-        prize: 750000
-    },
-    {
-        id: 9,
-        name: "ATP Finals",
-        description: "Year-end tournament for the top-ranked men's singles and doubles players.",
-        users: [],
-        matches: [],
-        prize: 1300000
+        prize: 5000
     },
     {
         id: 10,
@@ -229,6 +181,46 @@ export const mockTournaments: Tournament[] = [
         prize: 1000000
     },
     {
+        id: 12,
+        name: "Canadian Open",
+        description: "Oldest tennis tournament in North America, held in Toronto and Montreal.",
+        users: [],
+        matches: [],
+        prize: 850000
+    },
+    {
+        id: 1,
+        name: "Champion's League",
+        description: "Annual championship tournament",
+        users: [],
+        matches: [],
+        prize: 10000
+    },
+    {
+        id: 7,
+        name: "Davis Cup",
+        description: "International team event in men's tennis.",
+        users: [],
+        matches: [],
+        prize: 800000
+    },
+    {
+        id: 6,
+        name: "French Open",
+        description: "The only Grand Slam played on clay courts, held in Paris.",
+        users: [],
+        matches: [],
+        prize: 1600000
+    },
+    {
+        id: 8,
+        name: "Laver Cup",
+        description: "Team competition between Team Europe and Team World.",
+        users: [],
+        matches: [],
+        prize: 750000
+    },
+    {
         id: 11,
         name: "Shanghai Masters",
         description: "Premier ATP tournament held in Shanghai, China.",
@@ -237,12 +229,20 @@ export const mockTournaments: Tournament[] = [
         prize: 900000
     },
     {
-        id: 12,
-        name: "Canadian Open",
-        description: "Oldest tennis tournament in North America, held in Toronto and Montreal.",
+        id: 4,
+        name: "US Open",
+        description: "Annual hard-court Grand Slam tournament held in New York.",
         users: [],
         matches: [],
-        prize: 850000
+        prize: 1500000
+    },
+    {
+        id: 3,
+        name: "Wimbledon",
+        description: "The oldest and most prestigious tennis tournament held in London.",
+        users: [],
+        matches: [],
+        prize: 2000000
     }
 ];
 

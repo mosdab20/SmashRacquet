@@ -60,4 +60,8 @@ router.get('/prize-range', (req: Request, res: Response) => {
         .catch(err => res.status(500).send("Fehler beim Abrufen der Turniere: " + err.message));
 });
 
+router.get('/sortedByName', (req: Request, res: Response) => {
+    TournamentModel.find()
+})
+
 module.exports = router;
