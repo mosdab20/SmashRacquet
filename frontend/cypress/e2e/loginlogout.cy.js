@@ -1,8 +1,12 @@
+const viteUrl = Cypress.env('viteUrl');
+
+
+
 /// <reference types="cypress" />
 
 describe('template spec', function() {
   before(function() {
-    cy.visit('http://localhost:5173/');
+    cy.visit(viteUrl + '/');
   });
 
   it('renders input fields', function() {

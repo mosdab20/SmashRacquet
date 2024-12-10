@@ -62,9 +62,9 @@ router.get('/prize-range', (req: Request, res: Response) => {
 
 router.post('/', (req: Request, res:Response) => {
     const tournament = req.body;
-    
 
-    
+
+
     TournamentModel.create(tournament)
         .then(r => res.status(200).send(r))
         .catch(e => res.status(400));

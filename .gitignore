@@ -12,6 +12,7 @@ backend/node_modules
 frontend/cypress/node_modules
 backend/cypress/*.ts
 
+frontend/.env
 
 dist
 dist-ssr

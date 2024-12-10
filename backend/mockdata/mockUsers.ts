@@ -149,6 +149,7 @@ export const mockUsers: User[] = [
 // Mock Tournaments
 export const mockTournaments: Tournament[] = [
     {
+        id: 1,
         name: "Champion's League",
         description: "Annual championship tournament",
         users: [],
@@ -156,6 +157,7 @@ export const mockTournaments: Tournament[] = [
         prize: 10000
     },
     {
+        id: 2,
         name: "Beginner's Cup",
         description: "Tournament for beginners",
         users: [],
@@ -163,6 +165,7 @@ export const mockTournaments: Tournament[] = [
         prize: 5000
     },
     {
+        id: 3,
         name: "Wimbledon",
         description: "The oldest and most prestigious tennis tournament held in London.",
         users: [],
@@ -170,6 +173,7 @@ export const mockTournaments: Tournament[] = [
         prize: 2000000
     },
     {
+        id: 4,
         name: "US Open",
         description: "Annual hard-court Grand Slam tournament held in New York.",
         users: [],
@@ -177,6 +181,7 @@ export const mockTournaments: Tournament[] = [
         prize: 1500000
     },
     {
+        id: 5,
         name: "Australian Open",
         description: "Grand Slam tournament held every January in Melbourne, Australia.",
         users: [],
@@ -184,6 +189,7 @@ export const mockTournaments: Tournament[] = [
         prize: 1400000
     },
     {
+        id: 6,
         name: "French Open",
         description: "The only Grand Slam played on clay courts, held in Paris.",
         users: [],
@@ -191,6 +197,7 @@ export const mockTournaments: Tournament[] = [
         prize: 1600000
     },
     {
+        id: 7,
         name: "Davis Cup",
         description: "International team event in men's tennis.",
         users: [],
@@ -198,6 +205,7 @@ export const mockTournaments: Tournament[] = [
         prize: 800000
     },
     {
+        id: 8,
         name: "Laver Cup",
         description: "Team competition between Team Europe and Team World.",
         users: [],
@@ -205,6 +213,7 @@ export const mockTournaments: Tournament[] = [
         prize: 750000
     },
     {
+        id: 9,
         name: "ATP Finals",
         description: "Year-end tournament for the top-ranked men's singles and doubles players.",
         users: [],
@@ -212,6 +221,7 @@ export const mockTournaments: Tournament[] = [
         prize: 1300000
     },
     {
+        id: 10,
         name: "BNP Paribas Open",
         description: "Popular tournament held annually in Indian Wells, California.",
         users: [],
@@ -219,6 +229,7 @@ export const mockTournaments: Tournament[] = [
         prize: 1000000
     },
     {
+        id: 11,
         name: "Shanghai Masters",
         description: "Premier ATP tournament held in Shanghai, China.",
         users: [],
@@ -226,6 +237,7 @@ export const mockTournaments: Tournament[] = [
         prize: 900000
     },
     {
+        id: 12,
         name: "Canadian Open",
         description: "Oldest tennis tournament in North America, held in Toronto and Montreal.",
         users: [],

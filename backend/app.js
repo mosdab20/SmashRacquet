@@ -10,6 +10,12 @@ var tournamentRouter = require('./routes/tournament');
 var matchRouter = require('./routes/match');
 
 var app = express();
+app.use(cors({
+    origin: '*', // Erlaubt Anfragen von allen Ursprüngen
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Erlaubte HTTP-Methoden
+    allowedHeaders: ['Content-Type', 'Authorization'], // Erlaubte Header
+}));
+
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -22,11 +28,8 @@ const { initDB } = require('./src/db/DBService.js');
 connectDB();
 initDB();
 
-app.use(cors({
-    origin: 'https://kasmas1.delphinus.uberspace.de', // Erlaubt Anfragen von allen Ursprüngen
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Erlaubt alle Methoden
-    allowedHeaders: ['Content-Type', 'Authorization'] // Erlaubt diese Header
-}));
+
+
 
 app.use('/users', userRouter);
 app.use("/tournaments", tournamentRouter);
