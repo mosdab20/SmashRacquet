@@ -18,6 +18,7 @@ const Turniere = () => {
 
         setTournaments(data);
         setFilteredTournaments(data);
+
     };
 
     useEffect(() => {

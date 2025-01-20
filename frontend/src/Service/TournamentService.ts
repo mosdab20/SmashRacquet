@@ -57,5 +57,16 @@ export class TournamentService {
         return response.data;
     }
 
+    // Add tournament to the backend
+    public static async addTournament(tournament: Omit<Tournament, "id">): Promise<Tournament> {
+        const response = await axios.post<Tournament>(
+            `${this.BASE_URL}/tournaments/add`,
+            tournament
+        );
+        console.log(response.data);
+        return response.data;
+    }
+
+
 
 }
