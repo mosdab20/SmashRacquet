@@ -1,5 +1,5 @@
 import axios from "axios";
-import {Tournament} from "../interface/Tournament.tsx";
+import {Tournament} from "../interface/Tournament.ts";
 
 export class TournamentService {
     private static readonly BASE_URL:string = "http://localhost:3005";

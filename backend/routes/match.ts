@@ -1,6 +1,7 @@
 import express, {Request, Response} from "express";
-import {UserModel} from "../src/db/UserModel";
-import {MatchModel} from "../src/db/Matchmodel";
+import {MatchModel} from "../src/db/MatchModel";
+
+
 
 let router = express.Router();
 

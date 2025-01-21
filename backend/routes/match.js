@@ -4,9 +4,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const Matchmodel_1 = require("../src/db/Matchmodel");
+const MatchModel_1 = require("../src/db/MatchModel");
 let router = express_1.default.Router();
 router.get('/', (req, res) => {
-    Matchmodel_1.MatchModel.find().then(matches => res.send(matches));
+    MatchModel_1.MatchModel.find().then(matches => res.send(matches));
 });
 module.exports = router;

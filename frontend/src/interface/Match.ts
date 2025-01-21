@@ -1,13 +1,14 @@
-import {Tournament} from "./Tournament";
-import {Player} from "./Player";
-
+import {Player} from "./Player.ts";
+import {Tournament} from "./Tournament.ts";
 
 export interface Match {
+    id: number,
+    tournament: Tournament,
     player: Player,
     player2: Player,
     score: [number, number][],
     date: string,
-    location:string,
+    location:boolean,
     durationMinutes: number,
     finished: boolean
 }

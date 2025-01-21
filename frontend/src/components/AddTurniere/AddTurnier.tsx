@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {Tournament} from "../../interface/Tournament.tsx";
+import {Tournament} from "../../interface/Tournament.ts";
 import './AddTurnier.css';
 import {TournamentService} from "../../Service/TournamentService.ts";
 

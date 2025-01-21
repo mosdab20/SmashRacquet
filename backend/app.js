@@ -8,6 +8,7 @@ var indexRouter = require('./routes/index');
 var userRouter = require('./routes/user');
 var tournamentRouter = require('./routes/tournament');
 var matchRouter = require('./routes/match');
+var playerRouter = require('./routes/player');
 
 var app = express();
 app.use(cors());
@@ -33,5 +34,6 @@ app.use(cors({
 app.use('/users', userRouter);
 app.use("/tournaments", tournamentRouter);
 app.use('/matches', matchRouter);
+app.use('/players', playerRouter);
 
 module.exports = app;
